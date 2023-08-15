@@ -20,41 +20,56 @@ public class TestRunner {
         driver.manage().window().maximize();
     }
     @Test
-    public void regiterPage(){
+    public void regiterPage()  {
         RegisterForm registerpage = new RegisterForm(driver);
-        registerpage.HomePage();
+        registerpage.urlRegisterForm("https://demo.automationtesting.in/Register.html");
         registerpage.setFirstName("Florin");
+        registerpage.VerifyFirstName();
         registerpage.setlastName("Marele");
+        registerpage.VerifylastName();
         registerpage.setadress("Iasi");
+        registerpage.Verifyadress();
         registerpage.setemailAdress("mlorflor34@gmail.com");
-        registerpage.setphoneNumber("0743936235");
+        registerpage.VerifysetemailAdress();
+        registerpage.setphoneNumber("0768373748");
+        registerpage.VerifysetphoneNumber();
         registerpage.selectGender("Male");
+        registerpage.VerifyGender();
         registerpage.selectHobies();
+        registerpage.VerifyselectHobies();
         registerpage.selectlanguage();
+        registerpage.Verifyselectlanguage();
         registerpage.selectSkills("Java");
         registerpage.selectCountry("United States of America");
-        registerpage.setDateOfBirth("2003", "February", "26");
+        registerpage.VerifyselectCountry();
+        registerpage.setDateOfBirth("2003", "February", "28");
+        registerpage.VerifyDateOfBirth();
         registerpage.setPassword("AvadaKadavra","AvadaKadavra");
+        registerpage.VerifyfirstPassword();
+        registerpage.VerifysecondPassword();
         registerpage.clickSubmit();
+        registerpage.VerifyclickSubmit();
+        driver.quit();
     }
     @Test
-    public void SwitchToTests()
-    {   driver.get("https://demo.automationtesting.in/Register.html");
+    public void SwitchToPage() {
         SwitchToPage switchToPage = new SwitchToPage(driver);
+        switchToPage.urlSwitchToPage("https://demo.automationtesting.in/Register.html");
         switchToPage.clickSwitchTo();
         List<String> expectedSubMenuNames;
         expectedSubMenuNames = Arrays.asList("Alerts", "Windows", "Frames");
         List<String> actualresultSubNames;
         actualresultSubNames = switchToPage.subMenuNames();
-        Assert.assertEquals( "Submeniurile nu sunt as expected",actualresultSubNames, expectedSubMenuNames);
+        Assert.assertEquals( "Submeniurile aren't as expected",actualresultSubNames, expectedSubMenuNames);
         if (actualresultSubNames.equals(expectedSubMenuNames))
         {
-            System.out.println("Submeniurile sunt as expected");
+            System.out.println("Submeniurile are as expected");
         }
         else
         {
-            System.out.println("Submeniurile nu sunt as expected");
+            System.out.println("Submeniurile aren't as expected");
         }
+        driver.quit();
 
     }
 

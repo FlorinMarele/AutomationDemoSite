@@ -17,6 +17,7 @@ public class SwitchToPage {
 
 
         }
+    public void urlSwitchToPage(String url){driver.get(url);}
     @FindBy(className="dropdown-toggle")
     WebElement SwitchTo;
     @FindBy(xpath ="/html/body/header/nav/div/div[2]/ul/li[4]/ul/li[1]/a")
@@ -35,7 +36,7 @@ public class SwitchToPage {
         List<String> submeniuri;
         submeniuri = Arrays.asList(Alerts.getText(), Windows.getText(), Frames.getText());
         return submeniuri;
-        //return Alerts.getText();
+
     }
 
 
