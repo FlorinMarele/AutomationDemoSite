@@ -160,10 +160,10 @@ public class RegisterForm {
     }
     public void Verifyselectlanguage(){
         if(languageList.isEnabled()){
-            System.out.println("Language list is selected.");
+            System.out.println("Language is selected.");
         }
         else {
-            System.out.println("Language lsit is not selected.");
+            System.out.println("Language is not selected.");
         }
     }
 
